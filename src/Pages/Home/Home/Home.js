@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import useItems from '../../../hooks/useItems';
 import Banner from './Banner/Banner';
 import InventoryItems from './InventoryItems/InventoryItems';
@@ -6,6 +7,11 @@ import InventoryItems from './InventoryItems/InventoryItems';
 const Home = () => {
     const [items] = useItems();
     const newItems = items.slice(0, 6);
+    let navigate = useNavigate();
+    const manageInventory = () => {
+        const path = "/manageInventory"; // navigate to manage inventory to show all of the items
+        navigate(path);
+    }
     return (
         <div>
             <Banner></Banner>
@@ -21,7 +27,7 @@ const Home = () => {
                     }
                 </div>
                 <div className='my-5 d-flex justify-content-center'>
-                    <button className='btn btn-dark'>Manage Inventories</button>
+                    <button onClick={manageInventory} className='btn btn-dark'>Manage Inventories</button>
                 </div>
             </div>
         </div>
