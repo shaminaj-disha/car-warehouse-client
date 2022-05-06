@@ -9,13 +9,13 @@ const InventoryItems = ({item}) => {
     const navigateToInventory = id => {
         navigate(`/inventory/${id}`); // navigate to dynamic url
     }
-    
+
     return (
         <div className="col">
             <div className="card h-100">
                 <img className='w-100' src={img} alt="" />
                 <div className="card-body">
-                    <h5 className="card-title">{carName}</h5>
+                    <h5 className="card-title mb-4">{carName}</h5>
                     <p>Supplier Name: {supplierName}</p>
                     <p>Price: {price}</p>
                     <p>Quantity: {quantity}</p>
