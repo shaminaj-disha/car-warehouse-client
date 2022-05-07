@@ -9,7 +9,7 @@ const UpdateInventory = () => {
     const manageInventory = () => {
         navigate("/manageInventory"); // navigate to manage inventory to show all of the items
     }
-    const deliveredItem = () =>{
+    const deliveredItem = () => {
         const quantity = (parseInt(item?.quantity) - 1);
         console.log(item?.sold);
         const sold = (parseInt(item?.sold) + 1);
@@ -32,14 +32,14 @@ const UpdateInventory = () => {
                 alert('Item updated successfully');
                 // const newItem = item?.find(findItem => findItem._id === itemId);
                 // console.log('new Item ', newItem);
-                setItem({...item, quantity: updatedItem.quantity, sold: updatedItem.sold});
+                setItem({ ...item, quantity: updatedItem.quantity, sold: updatedItem.sold });
             })
             .catch((error) => {
                 console.error('Error:', error);
             });
 
     }
-    
+
     const handleRestockItems = event => {
         event.preventDefault();
         const quantity = parseInt(item?.quantity) + parseInt(event.target.quantity.value);
@@ -61,7 +61,7 @@ const UpdateInventory = () => {
                 alert('Item updated successfully');
                 event.target.reset();
                 // console.log('updatedItem ', updatedItem);
-                setItem({...item, quantity: updatedItem.quantity});
+                setItem({ ...item, quantity: updatedItem.quantity });
             })
             .catch((error) => {
                 console.error('Error:', error);
@@ -70,7 +70,7 @@ const UpdateInventory = () => {
 
     return (
         <div className='mt-4 d-flex justify-content-around'>
-            <div className="card" style={{ width: "18rem" }}>
+            <div className="card" style={{ width: "30rem" }}>
                 <img className='w-100' src={item?.img} alt="" />
                 <div className="card-body">
                     <h5 className="card-title mb-4">{item?.carName}</h5>
@@ -82,18 +82,18 @@ const UpdateInventory = () => {
                     <p className="card-text">{item?.description}</p>
                     <button onClick={deliveredItem} className='btn btn-dark'>Delivered</button>
                 </div>
-            </div>
-            <div>
-                <div className='p-4 bg-info' style={{ height: "200px" }}>
-                    <h2>Restock The Items</h2>
-                    <form onSubmit={handleRestockItems}>
-                        <input className='w-100 mb-2' type="number" name='quantity' placeholder='Restock Quantity' required />
-                        <br />
-                        <input className='btn btn-dark' type="submit" value="Restock" />
-                    </form>
-                </div>
-                <div className='my-5 d-flex justify-content-center'>
-                    <button onClick={manageInventory} className='btn btn-dark'>Manage Inventories</button>
+                <div>
+                    <div className='p-4 mt-4' style={{ height: "200px" }}>
+                        <h2>Restock The Item</h2>
+                        <form onSubmit={handleRestockItems}>
+                            <input className='w-100 mb-2' type="number" name='quantity' placeholder='Restock Quantity' required />
+                            <br />
+                            <input className='btn btn-dark' type="submit" value="Restock" />
+                        </form>
+                    </div>
+                    <div className='mb-5 d-flex justify-content-center'>
+                        <button onClick={manageInventory} className='btn btn-dark'>Manage Inventories</button>
+                    </div>
                 </div>
             </div>
         </div>
