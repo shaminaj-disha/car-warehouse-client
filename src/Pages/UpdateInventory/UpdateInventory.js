@@ -7,8 +7,8 @@ const UpdateInventory = () => {
     const [item, setItem] = useItemDetails(itemId);
     let navigate = useNavigate();
     const manageInventory = () => {
-        const path = "/manageInventory"; // navigate to manage inventory to show all of the items
-        navigate(path);
+        const path = "/manageInventory";
+        navigate(path); // navigate to manage inventory to show all of the items
     }
     const deliveredItem = () =>{
         const quantity = (parseInt(item?.quantity) - 1);
