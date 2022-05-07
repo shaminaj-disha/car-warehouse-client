@@ -9,8 +9,7 @@ const Home = () => {
     const newItems = items.slice(0, 6);
     let navigate = useNavigate();
     const manageInventory = () => {
-        const path = "/manageInventory";
-        navigate(path); // navigate to manage inventory to show all of the items
+        navigate("/manageInventory"); // navigate to manage inventory to show all of the items
     }
     return (
         <div>
