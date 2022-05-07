@@ -28,8 +28,8 @@ const Header = () => {
                             {
                                 user && <>
                                     <NavDropdown title="Options" id="collasible-nav-dropdown">
-                                        <NavDropdown.Item as={Link} to="manageItems">Manage Items</NavDropdown.Item>
-                                        <NavDropdown.Item as={Link} to="addItem">Add Item</NavDropdown.Item>
+                                        <NavDropdown.Item as={Link} to="manageInventory">Manage Items</NavDropdown.Item>
+                                        <NavDropdown.Item as={Link} to="addItems">Add Item</NavDropdown.Item>
                                         <NavDropdown.Item as={Link} to="myItems">My Items</NavDropdown.Item>
                                     </NavDropdown>
                                 </>
