@@ -1,70 +1,40 @@
-# Getting Started with Create React App
+# Car Warehouse Management
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## [Live Website Link](https://home-cook-delight.web.app/)
+[https://home-cook-delight.web.app/](https://home-cook-delight.web.app/)
 
-## Available Scripts
+--------------
+### Features and Functionality
+* There is a navigation bar which navigates to different routes such as Home, Blogs, About, Login and Options (Manage Items, Add Item, My Items) when signed in.
 
-In the project directory, you can run:
+* In Home, there are four sections. First one is a banner, second on is Inventory Items which shows first six items from `MongoDB`, third one is Exclusive Items which shows last four items from `MongoDB` and the last one is image gallery for various cars.
 
-### `npm start`
+* In Inventories, six items are shown from the database. There is a Update button which will route to inventory/:id which is a private route. There is also a button called Manage Inventories under this section, clicking which will route to Mange Inventories page which is also private.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+* In inventories/:id information about the specific car is shown and there is a delivered button, clicking which will decrease the quantity and increase sold items. There is also a form in where user can input restock quantity and it will update the quantity by adding that value to quantity. In this page there is also Manage Inventories button which routes to the same Manage Inventory page.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+* In Manage Inventories, all the items are shown in a table. User can delete any item from there. There is a Add Items button under it which will route to Add Items private page.
 
-### `npm test`
+* In Add Items, User can add a car information to the database.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* There is also My Items route in options when a user is logged in, in addition to manage items and add item. In My Items user will see only his/her items. He/ She can also cancel/delete any items from there.
 
-### `npm run build`
+* In Blogs, Four questions are answered from `MondoDB`.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+* In About, some information about the website is added.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+* If random path names are given which does not match any route, then it will route to Not Found page.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+--------------
+### Technologies (Frameworks, Libraries)
+* HTML, CSS, Javascript, React, Express JS
+* React Router Dom
+* Firebase Authentication
+* React Firebase Hooks
+* React Form Hook
+* Bootstrap and React Bootstrap
+* MongoDB
+* Axios
+* JWT
+* React Toastify
+* Heroku Server
