@@ -14,15 +14,22 @@ import UpdateInventory from './Pages/UpdateInventory/UpdateInventory';
 import ManageInventory from './Pages/ManageInventory/ManageInventory';
 import AddItems from './Pages/AddItems/AddItems';
 import MyItems from './Pages/MyItems/MyItems';
+import useBlogs from './hooks/useBlogs';
 
 function App() {
+  const [blogs] = useBlogs();
   return (
     <div>
       <Header></Header>
       <Routes>
         <Route path="/" element={<Home></Home>}></Route>
         <Route path="/home" element={<Home></Home>}></Route>
-        <Route path="/blogs" element={<Blogs></Blogs>}></Route>
+        <Route path="/blogs" element={blogs.map(blog =>
+          <Blogs
+            key={blog._id}
+            blog={blog}>
+          </Blogs>)}>
+        </Route>
         <Route path="/about" element={<About></About>}></Route>
         <Route path="/inventory/:itemId" element={<RequireAuth><UpdateInventory></UpdateInventory></RequireAuth>}></Route>
         <Route path="/manageInventory" element={<RequireAuth><ManageInventory></ManageInventory></RequireAuth>}></Route>

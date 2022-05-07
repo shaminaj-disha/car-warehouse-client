@@ -4,7 +4,7 @@ import './ImageGrid.css'
 const ImageGrid = () => {
     return (
         <div>
-            <div class="header">
+            <div className="header">
                 <h1>Car Gallery</h1>
                 <p>A car warehouse stored with various cars</p>
             </div>
