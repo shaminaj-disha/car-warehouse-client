@@ -1,7 +1,10 @@
 # Car Warehouse Management
 
-## [Live Website Link](https://home-cook-delight.web.app/)
-[https://home-cook-delight.web.app/](https://home-cook-delight.web.app/)
+## [Live Website Link](https://warehouse-mangement-49044.web.app/)
+[https://warehouse-mangement-49044.web.app/](https://warehouse-mangement-49044.web.app/)
+
+## [Live Server Link](https://afternoon-tundra-60480.herokuapp.com/)
+[https://afternoon-tundra-60480.herokuapp.com/](https://afternoon-tundra-60480.herokuapp.com/)
 
 --------------
 ### Features and Functionality
