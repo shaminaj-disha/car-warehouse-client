@@ -1,10 +1,14 @@
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from "react-hook-form";
+import auth from '../../firebase.init';
 
 const AddItems = () => {
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { register, handleSubmit, reset, formState: { errors } } = useForm();
+    const [user] = useAuthState(auth);
     const onSubmit = data => {
-        const url = `http://localhost:5000/items`;
+        console.log(data);
+        const url = `http://localhost:5000/addedItems`;
         fetch(url, {
             method: 'POST',
             headers: {
@@ -15,6 +19,7 @@ const AddItems = () => {
             .then(res => res.json())
             .then(result => {
                 alert('Item Added Successfully');
+                reset();
             })
             .catch((error) => {
                 console.error('Error:', error);
@@ -25,6 +30,8 @@ const AddItems = () => {
             <h2 className='text-center'>Add New Item</h2>
             {/* "handleSubmit" will validate your inputs before invoking "onSubmit" */}
             <form className='d-flex flex-column' onSubmit={handleSubmit(onSubmit)}>
+                <input className='my-2' value={user?.displayName} type="text" readOnly {...register("name", { required: true })} />
+                <input className='my-2' value={user?.email} type="email" readOnly {...register("email", { required: true })} />
                 <input className='my-2' placeholder='Photo URL' type="text" {...register("img", { required: true })} />
                 <input className='my-2' placeholder='Car Name' type="text" {...register("carName", { required: true })} />
                 <input className='my-2' placeholder='Supplier Name' {...register("supplierName", { required: true })} />

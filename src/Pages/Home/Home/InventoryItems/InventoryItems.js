@@ -1,8 +1,8 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const InventoryItems = ({item}) => {
-    const { _id, img, carName, supplierName, price, quantity,  description } = item;
+const InventoryItems = ({ item }) => {
+    const { _id, img, carName, supplierName, price, quantity, description } = item;
 
     const navigate = useNavigate();
 
@@ -20,7 +20,10 @@ const InventoryItems = ({item}) => {
                     <p>Price: {price}</p>
                     <p>Quantity: {quantity}</p>
                     <p className="card-text">{description}</p>
-                    <button onClick={() => navigateToInventoryUpdate(_id)} className='btn btn-dark'>Update</button>
+                    <div className='d-flex justify-content-between'>
+                        <button onClick={() => navigateToInventoryUpdate(_id)} className='btn btn-dark'>Update</button>
+                        <button className='btn btn-dark'>Add to My Items</button>
+                    </div>
                 </div>
             </div>
         </div>
