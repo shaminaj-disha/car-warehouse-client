@@ -18,7 +18,7 @@ const UpdateInventory = () => {
         console.log(updatedItem);
 
         // send data to server
-        const url = `http://localhost:5000/items/${itemId}`;
+        const url = `https://afternoon-tundra-60480.herokuapp.com/items/${itemId}`;
         fetch(url, {
             method: 'PUT',
             headers: {
@@ -30,8 +30,6 @@ const UpdateInventory = () => {
             .then(data => {
                 console.log('Success:', data);
                 alert('Item updated successfully');
-                // const newItem = item?.find(findItem => findItem._id === itemId);
-                // console.log('new Item ', newItem);
                 setItem({ ...item, quantity: updatedItem.quantity, sold: updatedItem.sold });
             })
             .catch((error) => {
@@ -47,7 +45,7 @@ const UpdateInventory = () => {
         const updatedItem = { quantity };
 
         // send data to server
-        const url = `http://localhost:5000/items/${itemId}`;
+        const url = `https://afternoon-tundra-60480.herokuapp.com/items/${itemId}`;
         fetch(url, {
             method: 'PUT',
             headers: {

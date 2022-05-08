@@ -5,7 +5,7 @@ const useItems = () => {
     const [isLoading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch('http://localhost:5000/items')
+        fetch('https://afternoon-tundra-60480.herokuapp.com/items')
             .then(res => res.json())
             .then(data => {
                 setItems(data);

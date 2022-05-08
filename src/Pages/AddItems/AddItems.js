@@ -8,7 +8,7 @@ const AddItems = () => {
     const [user] = useAuthState(auth);
     const onSubmit = data => {
         console.log(data);
-        const url = `http://localhost:5000/addedItems`;
+        const url = `https://afternoon-tundra-60480.herokuapp.com/addedItems`;
         fetch(url, {
             method: 'POST',
             headers: {

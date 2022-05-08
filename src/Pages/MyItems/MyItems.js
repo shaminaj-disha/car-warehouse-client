@@ -13,7 +13,7 @@ const MyItems = () => {
     useEffect(() => {
         const getUserItems = async () => {
             const email = user?.email;
-            const url = `http://localhost:5000/addedItems?email=${email}`;
+            const url = `https://afternoon-tundra-60480.herokuapp.com/addedItems?email=${email}`;
             try {
                 const { data } = await axios.get(url, {
                     headers: {
@@ -31,23 +31,12 @@ const MyItems = () => {
             }
         }
         getUserItems();
-        // const email = user?.email;
-        // const url = `http://localhost:5000/addedItems?email=${email}`;
-        // fetch(url, {
-        //     headers: {
-        //         authorization: `Bearer ${localStorage.getItem('accessToken')}`
-        //     }
-        // })
-        //     .then(res => res.json())
-        //     .then(data => {
-        //         setItems(data);
-        //     });
     }, [user, navigate]);
 
     const handleDeleteItem = id => {
         const proceed = window.confirm('Are you sure?');
         if (proceed) {
-            const url = `http://localhost:5000/items/${id}`;
+            const url = `https://afternoon-tundra-60480.herokuapp.com/items/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })
@@ -58,6 +47,10 @@ const MyItems = () => {
                     setItems(remainingItems);
                 })
         }
+    }
+
+    const handleAddItems = () => {
+        navigate('/addItems');
     }
 
     return (
@@ -92,9 +85,9 @@ const MyItems = () => {
                     </tbody>
                 </table>
             </div>
-            {/* <div className='my-5 d-flex justify-content-center'>
+            <div className='my-5 d-flex justify-content-center'>
                 <button onClick={handleAddItems} className='btn btn-dark'>Add New Item</button>
-            </div> */}
+            </div>
         </div>
     );
 };
