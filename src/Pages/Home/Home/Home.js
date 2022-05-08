@@ -26,12 +26,6 @@ const Home = () => {
     }
     return (
         <div>
-            {/* Spinner
-            <div className="d-flex justify-content-center my-5">
-                <div id="loading-spinner" className="spinner-border display-none" role="status">
-                    <span className="sr-only"></span>
-                </div>
-            </div> */}
             <Banner></Banner>
             <div className='container my-5'>
                 <h1 className='text-center text-dark my-5'>Inventory Items</h1>
@@ -49,7 +43,7 @@ const Home = () => {
                 </div>
             </div>
             <div className='container my-5'>
-                <h1 className='text-center text-dark my-5'>Exclusive Items</h1>
+                <h1 className='text-center text-dark my-5'>New and Popular</h1>
                 {isLoading ? (<Loading></Loading>) : (<div className='row row-cols-1 row-cols-md-4 g-4'>
                     {
                         popular.map(item =>

@@ -1,20 +1,48 @@
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
+import axios from 'axios';
+import { signOut } from 'firebase/auth';
+import { useNavigate } from 'react-router-dom';
 
 const MyItems = () => {
     const [user] = useAuthState(auth);
     const [items, setItems] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
-        const email = user?.email;
-        const url = `http://localhost:5000/addedItems?email=${email}`;
-        fetch(url)
-            .then(res => res.json())
-            .then(data => {
+        const getUserItems = async () => {
+            const email = user?.email;
+            const url = `http://localhost:5000/addedItems?email=${email}`;
+            try {
+                const { data } = await axios.get(url, {
+                    headers: {
+                        authorization: `Bearer ${localStorage.getItem('accessToken')}`
+                    }
+                });
                 setItems(data);
-            });
-    }, [user]);
+            }
+            catch (error) {
+                console.log(error.message);
+                if (error.response.status === 401 || error.response.status === 403) {
+                    signOut(auth);
+                    navigate('/login')
+                }
+            }
+        }
+        getUserItems();
+        // const email = user?.email;
+        // const url = `http://localhost:5000/addedItems?email=${email}`;
+        // fetch(url, {
+        //     headers: {
+        //         authorization: `Bearer ${localStorage.getItem('accessToken')}`
+        //     }
+        // })
+        //     .then(res => res.json())
+        //     .then(data => {
+        //         setItems(data);
+        //     });
+    }, [user, navigate]);
 
     const handleDeleteItem = id => {
         const proceed = window.confirm('Are you sure?');
