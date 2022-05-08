@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Loading from '../../Shared/Loading/Loading';
-import Banner from './Banner/Banner';
-import ImageGrid from './ImageGrid/ImageGrid';
-import InventoryItems from './InventoryItems/InventoryItems';
-import PopularItems from './PopularItems/PopularItems';
+import Banner from '../Banner/Banner';
+import InventoryItems from '../InventoryItems/InventoryItems';
+import PopularItems from '../PopularItems/PopularItems';
+import ImageGrid from '../ImageGrid/ImageGrid';
 
 const Home = () => {
     const [items, setItems] = useState([]);

@@ -29,7 +29,7 @@ const ManageInventory = () => {
 
     return (
         <div className='m-2'>
-            <h2 className='text-center my-4'>Manage Inventory</h2>
+            <h2 className='text-center my-4'>Manage Inventory ({items.length})</h2>
             <div className='container' style={{ overflowX: "auto" }}>
                 <table className="table table-bordered table-hover" >
                     <thead className='table-dark'>

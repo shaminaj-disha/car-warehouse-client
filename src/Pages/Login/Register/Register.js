@@ -3,6 +3,7 @@ import { Button, Form } from 'react-bootstrap';
 import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
+import useToken from '../../../hooks/useToken';
 import Loading from '../../Shared/Loading/Loading';
 import SocialLogin from '../SocialLogin/SocialLogin';
 
@@ -23,6 +24,7 @@ const Register = () => {
 
     const [updateProfile, updating, updateError] = useUpdateProfile(auth);
 
+    const [token] = useToken(user);
     const navigate = useNavigate();
     const location = useLocation();
     let from = location.state?.from?.pathname || "/";
@@ -31,8 +33,8 @@ const Register = () => {
         return <Loading></Loading>
     }
 
-    if (user) {
-        console.log('user', user);
+    if (token) {
+        navigate(from, { replace: true });
     }
 
     if (error || updateError || passwordError) {
@@ -61,7 +63,7 @@ const Register = () => {
         await updateProfile({ displayName: name }); // update profile using react firebase hooks
         console.log('Updated profile');
         // navigate('/home');
-        navigate(from, { replace: true }); //navigate to previous
+        // navigate(from, { replace: true }); //navigate to previous
     }
     return (
         <div className='container w-50 mx-auto'>
