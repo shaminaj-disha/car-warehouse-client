@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import useItems from '../../hooks/useItems';
+import { TrashIcon } from '@heroicons/react/solid'
 
 const ManageInventory = () => {
 
@@ -54,7 +55,7 @@ const ManageInventory = () => {
                                 <td>{item?.price}</td>
                                 <td>{item?.quantity}</td>
                                 <td>{item?.sold}</td>
-                                <td><button onClick={() => handleDeleteItem(item._id)}>X</button></td>
+                                <td><button className='bg-white' onClick={() => handleDeleteItem(item._id)}><TrashIcon className='text-dark' style={{width: "20px"}}></TrashIcon></button></td>
                             </tr>)}
                     </tbody>
                 </table>

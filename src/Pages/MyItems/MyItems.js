@@ -4,6 +4,7 @@ import auth from '../../firebase.init';
 import axios from 'axios';
 import { signOut } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
+import { TrashIcon } from '@heroicons/react/solid';
 
 const MyItems = () => {
     const [user] = useAuthState(auth);
@@ -80,7 +81,7 @@ const MyItems = () => {
                                 <td>{item?.price}</td>
                                 <td>{item?.quantity}</td>
                                 <td>{item?.sold}</td>
-                                <td><button onClick={() => handleDeleteItem(item._id)}>X</button></td>
+                                <td><button onClick={() => handleDeleteItem(item._id)}><TrashIcon className='text-dark' style={{width: "20px"}}></TrashIcon></button></td>
                             </tr>)}
                     </tbody>
                 </table>

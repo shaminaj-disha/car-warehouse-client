@@ -40,4 +40,5 @@
 * Axios
 * JWT
 * React Toastify
+* Heroicons
 * Heroku Server
